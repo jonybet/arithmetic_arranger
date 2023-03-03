@@ -1,5 +1,8 @@
-def arithmetic_arranger(problems, solve = False):
+# SOLUTION for the arithmetic arranger project 
 
+
+def arithmetic_arranger(problems, solve = False):
+# Problems cannot exceed more than 5. Return an Error
     if len(problems) > 5:
         return "Error: Too many problems."
 # create a lambda function to check operators only '+' or '-'
@@ -7,7 +10,9 @@ def arithmetic_arranger(problems, solve = False):
         '+': lambda pair: str(pair[0] + pair[1]),
         '-': lambda pair: str(pair[0] - pair[1]),
     }
-    arranged_problems = []
+    
+# set numonic variables for our arithmetic
+    arranged_problems = [] 
     top = []
     bottom = []
     lines = []
@@ -16,14 +21,14 @@ def arithmetic_arranger(problems, solve = False):
     for problem in problems:
         nums = problem.split()
         max_len = len(max(nums, key=len))
-
+# Numbers can only be digits. Return error if non digit and can only use operators '+', '-'
         if not all([i.isnumeric() for i in nums[::2]]):
             return "Error: Numbers must only contain digits."
         elif nums[1] not in operators.keys():
             return "Error: Operator must be '+' or '-'."
         elif max_len > 4:
             return "Error: Numbers cannot be more than four digits."
-
+# ensure spacing is correct
         line_len = max_len + 2
 
         line = '-' * line_len  # set it to 2 to get space and allignment correct
