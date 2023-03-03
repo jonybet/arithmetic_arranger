@@ -1,4 +1,5 @@
 # This entrypoint file to be used in development. Start by reading README.md
+# Free Code Camp certification project for the arithmetic arranger
 from pytest import main
 
 from arithmetic_arranger import arithmetic_arranger
